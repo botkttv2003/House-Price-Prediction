@@ -14,10 +14,10 @@ Người thực hiện: **Trần Quang Luân - 52100254**
 **Câu 1:**
 - Đặt vấn đề: Trong nghiên cứu này, tôi đã tìm hiểu và so sánh các phương pháp Optimizer phổ biến trong huấn luyện mô hình học máy. Các phương pháp Optimizer có vai trò quan trọng trong việc điều chỉnh các tham số của mô hình để tối ưu hóa hàm mục tiêu.
 - Khái niệm: Optimizer (thuật toán tối ưu hóa) là cơ sở để xây dựng mô hình neural network với mục đích "học " được các features ( hay pattern) của dữ liệu đầu vào, từ đó có thể tìm 1 cặp weights và bias phù hợp để tối ưu hóa model.
-- Các phương pháp Optimizer trong huấn luyện mô hình học máy:
+- Các phương pháp Optimizer trong huấn luyện mô hình học máy: 
 ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/ec631281-05cf-46b6-b32a-0eec3e85f9e5)
 
-  **1.Gradient Descent (GD)**
+  **1. Gradient Descent (GD)**
     - Gradient Descent (GD) là phương pháp cơ bản nhất trong tối ưu hóa mô hình.
     - GD tính toán gradient của hàm mất mát (loss function) theo từng tham số của mô hình.
     - Sau đó, nó di chuyển các tham số ngược chiều gradient với một tỷ lệ học tập cố định.
@@ -26,7 +26,7 @@ Người thực hiện: **Trần Quang Luân - 52100254**
       + α là tỷ lệ học tập, 
       +  ∇J(θ) là gradient của hàm mất mát J theo θ.
   
-  **2.Stochastic Gradient Descent (SGD)**
+  **2. Stochastic Gradient Descent (SGD)**
     - Stochastic Gradient Descent (SGD) là phiên bản ngẫu nhiên của GD.
     - Thay vì tính toán gradient trên toàn bộ tập dữ liệu (như GD), SGD chỉ tính toán gradient trên một mẫu dữ liệu ngẫu nhiên trong mỗi bước cập nhật.
     -  Điều này giúp giảm khối lượng tính toán và tốc độ huấn luyện.
@@ -34,21 +34,21 @@ Người thực hiện: **Trần Quang Luân - 52100254**
       + x(i) là một mẫu ngẫu nhiên, 
       + i là chỉ số mẫu.
         
-  **3.Momentum**
+  **3. Momentum**
     - Momentum giúp tăng tốc quá trình hội tụ bằng cách tích lũy gradient của các bước trước đó và thêm một lượng momentum (động lượng) vào quá trình cập nhật.
     - Nó giúp vượt qua các địa phương cực tiểu và nhanh chóng tiến gần hơn đến điểm tối ưu.
     - Công thức cập nhật cho Momentum: v(t) = β * v(t-1) + α * ∇J(θ), θ = θ - v(t), trong đó: 
       + v(t) là vector momentum tại thời điểm t, 
       + β là hệ số momentum (0 < β < 1).
         
-  **4.Adagrad (Adaptive Gradient Algorithm)**
+  **4. Adagrad (Adaptive Gradient Algorithm)**
     - AdaGrad là phương pháp điều chỉnh tỷ lệ học tập tự động cho từng tham số dựa trên lịch sử của các gradient trước đó.
     - AdaGrad phù hợp cho các bài toán với dữ liệu thưa và có thay đổi tỷ lệ học tập cho từng tham số riêng biệt.
     - Công thức cập nhật cho AdaGrad: G(t) = G(t-1) + (∇J(θ))^2, θ = θ - α / √(G(t) + ε) * ∇J(θ), trong đó: 
       + G(t) là ma trận đường chéo chứa tổng bình phương gradient trước đó, 
       + ε là một hằng số nhỏ để tránh chia cho 0.
         
-  **5.RMSprop (Root Mean Square Propagation)**
+  **5. RMSprop (Root Mean Square Propagation)**
     - RMSprop kết hợp ưu điểm của AdaGrad và Momentum.
     - Nó điều chỉnh tỷ lệ học tập dựa trên trung bình gia quyền của các gradient gần đây.
     - Công thức cập nhật cho RMSprop: G(t) = α * G(t-1) + (1 - α) * (∇J(θ))^2, θ = θ - ε / √(G(t) + ε) * ∇J(θ), trong đó: 
@@ -56,7 +56,7 @@ Người thực hiện: **Trần Quang Luân - 52100254**
       + α là hệ số trọng số (0 < α < 1), 
       + ε là một hằng số nhỏ để tránh
         
-  **6.Adam (Adaptive Moment Estimation)**
+  **6. Adam (Adaptive Moment Estimation)**
     - Adam là một phương pháp tối ưu hóa tỷ lệ học tập (learning rate) thích ứng cho mô hình học máy.
     - Nó kết hợp cả hai khía cạnh của phương pháp Momentum và RMSprop.
     - Adam tính toán hai bước để cập nhật tham số: một bước sử dụng moment (động lượng) và một bước sử dụng trung bình gia quyền của gradient bình phương.
@@ -76,6 +76,9 @@ Người thực hiện: **Trần Quang Luân - 52100254**
 
 **->  Tổng quan:**
   + Còn có rất nhiều thuật toán tối ưu như Nesterov (NAG), Adadelta, Nadam,... nhưng mình sẽ không trình bày trong bài này, mình chỉ tập trung vào các optimizers hay được sử dụng. Hiện nay optimizers hay được sử dụng nhất là 'Adam'.
+    
+    ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/57dcc7c8-5b85-4a31-9cf5-0f61ff14a43c)
+    
   + Qua hình trên ta thấy optimizer 'Adam' hoạt động khá tốt, tiến nhanh tới mức tối thiểu hơn các phương pháp khác. 
 
 **So sánh các phương pháp Optimizer:**
@@ -137,3 +140,17 @@ Người thực hiện: **Trần Quang Luân - 52100254**
 	+ A/B Testing: Phương pháp này được sử dụng trong các tình huống triển khai hệ thống thực tế. Hai phiên bản (A và B) của giải pháp học máy được triển khai song song và đánh giá hiệu suất bằng cách so sánh kết quả của họ trên dữ liệu thực tế.
 
 **-> Tổng kết:** Continual Learning giúp mô hình học máy tiếp nhận dữ liệu mới và mở rộng bài toán một cách liên tục, đồng thời giữ lại kiến thức đã học. Trong khi đó, Test Production đảm bảo đánh giá hiệu suất của mô hình trên dữ liệu mới hoặc dữ liệu thực tế. Cả hai khía cạnh này đều quan trọng và cần được xem xét trong quá trình xây dựng một giải pháp học máy thành công.
+
+#  TÀI LIỆU THAM KHẢO
+
+**Tiếng Việt**
+
+1. Machine Learning cơ bản (machinelearningcoban.com)<br>
+2. Optimizer- Hiểu sâu về các thuật toán tối ưu ( GD,SGD,Adam,..) (viblo.asia)
+
+**Tiếng Anh**
+
+3. Optimizers — ML Glossary documentation (ml-cheatsheet.readthedocs.io)<br>
+4. Chapter 9. Continual Learning and Test in Production (aiden-jeon.github.io)<br>
+5. Continual Learning | Papers With Code<br>
+6. Testing in Production: What It Is & Why You Should Do It | Perfecto by Perforce
