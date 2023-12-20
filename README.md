@@ -15,12 +15,14 @@ Người thực hiện: **Trần Quang Luân - 52100254**
 - Đặt vấn đề: Trong nghiên cứu này, tôi đã tìm hiểu và so sánh các phương pháp Optimizer phổ biến trong huấn luyện mô hình học máy. Các phương pháp Optimizer có vai trò quan trọng trong việc điều chỉnh các tham số của mô hình để tối ưu hóa hàm mục tiêu.
 - Khái niệm: Optimizer (thuật toán tối ưu hóa) là cơ sở để xây dựng mô hình neural network với mục đích "học " được các features ( hay pattern) của dữ liệu đầu vào, từ đó có thể tìm 1 cặp weights và bias phù hợp để tối ưu hóa model.
 - Các phương pháp Optimizer trong huấn luyện mô hình học máy: 
-![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/ec631281-05cf-46b6-b32a-0eec3e85f9e5)
+![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/90725b9a-fb69-4bbf-8cc0-b6bc3024acd3)
 
   **1. Gradient Descent (GD)**
     - Gradient Descent (GD) là phương pháp cơ bản nhất trong tối ưu hóa mô hình.
     - GD tính toán gradient của hàm mất mát (loss function) theo từng tham số của mô hình.
     - Sau đó, nó di chuyển các tham số ngược chiều gradient với một tỷ lệ học tập cố định.
+      ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/b0423b96-d63e-450b-b92d-12d6c358a270)
+
     - Công thức cập nhật cho GD: θ = θ - α * ∇J(θ), trong đó: 
       +  θ là vector các tham số, 
       + α là tỷ lệ học tập, 
@@ -30,6 +32,8 @@ Người thực hiện: **Trần Quang Luân - 52100254**
     - Stochastic Gradient Descent (SGD) là phiên bản ngẫu nhiên của GD.
     - Thay vì tính toán gradient trên toàn bộ tập dữ liệu (như GD), SGD chỉ tính toán gradient trên một mẫu dữ liệu ngẫu nhiên trong mỗi bước cập nhật.
     -  Điều này giúp giảm khối lượng tính toán và tốc độ huấn luyện.
+      ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/c48c055f-7ff9-4038-8172-58de0e8dda53)
+
     - Công thức cập nhật cho SGD: θ = θ - α * ∇J(θ, x(i)), trong đó:
       + x(i) là một mẫu ngẫu nhiên, 
       + i là chỉ số mẫu.
@@ -37,6 +41,8 @@ Người thực hiện: **Trần Quang Luân - 52100254**
   **3. Momentum**
     - Momentum giúp tăng tốc quá trình hội tụ bằng cách tích lũy gradient của các bước trước đó và thêm một lượng momentum (động lượng) vào quá trình cập nhật.
     - Nó giúp vượt qua các địa phương cực tiểu và nhanh chóng tiến gần hơn đến điểm tối ưu.
+      ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/f40c42ef-6db8-4078-afc1-cd55adce00b3)
+
     - Công thức cập nhật cho Momentum: v(t) = β * v(t-1) + α * ∇J(θ), θ = θ - v(t), trong đó: 
       + v(t) là vector momentum tại thời điểm t, 
       + β là hệ số momentum (0 < β < 1).
@@ -77,7 +83,7 @@ Người thực hiện: **Trần Quang Luân - 52100254**
 **->  Tổng quan:**
   + Còn có rất nhiều thuật toán tối ưu như Nesterov (NAG), Adadelta, Nadam,... nhưng mình sẽ không trình bày trong bài này, mình chỉ tập trung vào các optimizers hay được sử dụng. Hiện nay optimizers hay được sử dụng nhất là 'Adam'.
     
-    ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/57dcc7c8-5b85-4a31-9cf5-0f61ff14a43c)
+    ![image](https://github.com/botkttv2003/Machine-Learning/assets/105039417/a17c3e7b-fe3d-4e5a-8ca3-3b9295a93fb9)
     
   + Qua hình trên ta thấy optimizer 'Adam' hoạt động khá tốt, tiến nhanh tới mức tối thiểu hơn các phương pháp khác. 
 
