@@ -1,5 +1,5 @@
-Dự án cuối kì bao gồm:
-1. Báo cáo dự án cuối kì
+Dự án bao gồm:
+1. Báo cáo dự án
 2. file cleandata.py là file tiền xử lý dữ liệu
 3. dataset.txt là link tải file dữ liệu sau tiền xử lý
 4. EDA là thưu mục chứa tableau workbooks: tìm kiếm outliers, trực quan dữ liệu
